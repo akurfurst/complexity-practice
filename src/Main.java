@@ -182,7 +182,7 @@ public class Main {
   // What is the time complexity of this method?
   // assume that each String is bounded by a constant length
   // (assume the set and list have the same number of elements)
-  // YOUR ANSWER HERE
+  // O(n^n) n = wordSet/wordList.size()
   public static boolean hasCommon(HashSet<String> wordSet, ArrayList<String> wordList) {
     for(String word : wordSet) {
       if(wordList.contains(word)) {
@@ -195,8 +195,11 @@ public class Main {
   // Do not change the datatype of wordSet or wordList.
   // assume that each String is bounded by a constant length
   // What is the time complexity of your new solution?
-  // YOUR ANSWER HERE
+  // O(n) n = wordList.size()
   public static boolean hasCommonEfficient(HashSet<String> wordSet, ArrayList<String> wordList) {
+    for(String word : wordList){
+        if(wordSet.contains(word)) return true;
+    }
     return false;
   }
 
@@ -207,12 +210,17 @@ public class Main {
   // What would be a good choice of data structure?
   // YOUR ANSWER HERE
 
+  // A map would be best for this situation, specifically a hash map because the order of the data
+  // doesnt matter and a hash map has O(1) time complexity for get() and put()
+
   // Suppose you are building a music player application where users can create playlists.
   // Songs can be added to the end of the playlist in the order the user chooses, and the user can
   // skip to the next or previous song. Most operations involve adding songs and accessing them by
   // their position in the playlist.
   // What would be a good choice of data structure?
   // YOUR ANSWER HERE
+
+  // An array list would be best for this scenario because it is indexed and has an O(1) time complecity for get()
 
   // Suppose you are developing a search feature that keeps track of the user's
   // recent search queries. You want to store the queries in the order they were made,
@@ -221,4 +229,7 @@ public class Main {
   // to optimize for fast lookups or deletions.
   // What would be a good choice of data structure?
   // YOUR ANSWER HERE
+
+  //An array list beacuse order matters over time and assuming that if the user searches the same thing multiple times
+  //that might want to be displayed.
 }
